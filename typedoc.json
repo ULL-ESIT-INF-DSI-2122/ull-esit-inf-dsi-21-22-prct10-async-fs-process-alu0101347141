@@ -1,0 +1,6 @@
+{
+  "entryPoints": [
+    "./src/ejercicio10"
+  ],
+  "out": "./docs"
+}
