@@ -5,7 +5,7 @@ import * as chalk from 'chalk';
 /**
  * Clase WordCounter
  */
-export class OcurrencesCounter {
+class OcurrencesCounter {
   /**
    * Constructor de WordCounter
    * @param {string} file

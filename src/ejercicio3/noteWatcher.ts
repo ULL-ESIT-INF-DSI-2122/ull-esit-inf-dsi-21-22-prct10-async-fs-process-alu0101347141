@@ -5,7 +5,7 @@ import {argv} from 'process';
 /**
  * Clase para vigilar cambios en el directorio /notes
  */
-export class Watcher {
+class NoteWatcher {
   private path: string;
   /**
    * Constructor de la clase Watcher
@@ -13,7 +13,6 @@ export class Watcher {
    */
   constructor(private user: string) {
     this.path = './notas/' + user + '/';
-    console.log(this.path);
   }
 
   /**
@@ -58,5 +57,5 @@ export class Watcher {
   }
 }
 
-const watcher = new Watcher(argv[2]);
+const watcher = new NoteWatcher(argv[2]);
 watcher.watchDir();
