@@ -5,7 +5,7 @@ import {argv} from 'process';
 /**
  * Clase para vigilar cambios en el directorio /notes
  */
-class NoteWatcher {
+export class NoteWatcher {
   private path: string;
   /**
    * Constructor de la clase Watcher

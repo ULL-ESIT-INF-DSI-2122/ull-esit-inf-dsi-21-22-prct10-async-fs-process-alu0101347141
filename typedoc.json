@@ -1,6 +1,12 @@
 {
   "entryPoints": [
-    "./src/ejercicio10.ts"
+    "./src/ejercicio10.ts",
+    "./src/ejercicio1.ts",
+    "./src/ejercicio2.ts",
+    "./src/ejercicio3/noteApp.ts",
+    "./src/ejercicio3/noteWatcher.ts",
+    "./src/ejercicio4/wrapper.ts",
+    "./src/ejercicio4/wrapperApp.ts"
   ],
   "out": "./docs"
 }
