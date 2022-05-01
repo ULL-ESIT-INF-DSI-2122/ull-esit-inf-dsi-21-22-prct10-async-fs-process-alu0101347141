@@ -16,6 +16,28 @@ En esta práctica se resolverán una serie de ejercicios utilizando las APIs que
 
 ## **Ejercicio 1**
 
+El programa que se propone en el enunciado recibe un fichero por consola y genera un watcher que lo vigila. este watcher avisa cada vez que se realizan cambios en el fichero. Además, esto está dentro del método access() del módulo fs, que sirve para comprobar ciertas condiciones de un fichero según la constante que se le pase como parámetro. En este caso, F_OK sirve para saber si existe o no el fichero.
+
+El proceso que se lleva a cabo es el siguiente:
+- Se analiza si se han obtenido 3 argumentos (el tercero debería ser el fichero)
+  - Si no es así, entra el console.log() a la pila de llamadas, se ejecuta, sale de la pila y, como esta está vacía, finaliza el programa.
+  - Si efectivamente hay tres argumentos, se ejecuta el programa suponiendo que el tercero es el fichero a observar.
+- Entra access() a la pila de llamadas.
+- En caso de que 'err' == true, el console.log() avisando de que el fichero no existe entra en la pila de llamadas.
+  - Se ejecuta el console.log(), sale de la pila de llamadas.
+- En el caso de que 'err' == false:
+  - Entra a la pila de llamadas el console.log() confirmando que se está observando el fichero. Se ejecuta y sale de la pila de llamadas
+  - Entra a la pila de llamadas watch().
+  - Entra a la pila de llamadas el console.log() que avisa de que el fichero ya no se está observando. Se muestra por consola, sale de la pila de llamadas.
+  - watch() va al registro de eventos
+  - Se modifica la primera vez el fichero.
+  - watch() emite el evento 'change' y este pasa a la cola de manejadores.
+  - Entra en la pila de llamadas el console.log() que avisa de la modificación en el fichero. Se muestra por pantalla. Sale de la pila de llamadas.
+  - Se modifica la segunda vez el fichero.
+  - watch() emite el evento 'change' y este pasa a la cola de manejadores.
+  - Entra en la pila de llamadas el console.log() que avisa de la modificación en el fichero. Se muestra por pantalla. Sale de la pila de llamadas.
+  - El programa se queda esperando a que watch() envíe un nuevo evento.
+
 ---
 <br>
 
