@@ -4,5 +4,6 @@ import {Wrapper} from './wrapper';
 const wrap = new Wrapper();
 wrap.dof();
 wrap.mkDir();
+wrap.lsFiles();
 
 yargs.parse();
