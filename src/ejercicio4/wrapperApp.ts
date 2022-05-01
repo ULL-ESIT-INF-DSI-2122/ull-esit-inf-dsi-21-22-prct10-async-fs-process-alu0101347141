@@ -6,5 +6,7 @@ wrap.dorf();
 wrap.mkDir();
 wrap.lsFiles();
 wrap.catFile();
+wrap.rmDorF();
+wrap.mvDorF();
 
 yargs.parse();
