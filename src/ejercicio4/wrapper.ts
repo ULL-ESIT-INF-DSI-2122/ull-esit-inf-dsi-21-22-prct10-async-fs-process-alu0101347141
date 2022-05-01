@@ -15,9 +15,9 @@ export class Wrapper {
   /**
    * Función para saber si es un directorio o un fichero
   */
-  dof() {
+  dorf() {
     yargs.command({
-      command: 'dof',
+      command: 'DorF',
       describe: 'Comprueba si es un directorio o un fichero',
       builder: {
         path: {
@@ -47,7 +47,7 @@ export class Wrapper {
    */
   mkDir() {
     yargs.command({
-      command: 'mkDir',
+      command: 'mkD',
       describe: 'Crea un directorio',
       builder: {
         path: {
@@ -73,7 +73,7 @@ export class Wrapper {
    */
   lsFiles() {
     yargs.command({
-      command: 'lsf',
+      command: 'lsF',
       describe: 'Muestra la lista de ficheros de un directorio',
       builder: {
         path: {
@@ -97,4 +97,36 @@ export class Wrapper {
       },
     });
   }
+  /**
+   * Función para mostrar el contenido de un fichero
+   */
+  catFile() {
+    yargs.command({
+      command: 'catF',
+      describe: 'Muestra el contenido de un fichero',
+      builder: {
+        path: {
+          describe: 'Ruta del fichero',
+          demandOption: true,
+          type: 'string',
+        },
+      },
+      handler(argv) {
+        if (typeof(argv.path) === 'string') {
+          const path: string = argv.path;
+          if (fs.existsSync(argv.path)) {
+            fs.readFile(path, function(err, data) {
+              if (err) {
+                console.log(err);
+              }
+              console.log(data.toString());
+            });
+          } else {
+            console.log(chalk.red('No existe el fichero'));
+          }
+        }
+      },
+    });
+  }
 }
+
